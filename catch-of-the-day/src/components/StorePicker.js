@@ -1,10 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { getFunName } from "../helpers";
 
 // every component is its own class, and needs render in it
 class StorePicker extends React.Component {
   myInput = React.createRef();
   
+  static propTypes ={
+    history: PropTypes.object
+  }
+
   goToStore = (event) => {
     // stop form from submitting
     event.preventDefault();
@@ -13,7 +18,6 @@ class StorePicker extends React.Component {
     // ref allows us to reference a dom node on page
     // change page to /store/whatever-they-enter
     this.props.history.push(`/store/${storeName}`);
-    
   };
 
   render() {
